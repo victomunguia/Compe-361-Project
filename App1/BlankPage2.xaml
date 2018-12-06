@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="App1.BlankPage2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="SortOrder" VerticalAlignment="Top" HorizontalAlignment="Center" Text="Choose a desired sorting order" Margin="0,314,0,0" FontSize="35" FontStyle="Italic"/>
+        <StackPanel x:Name="Sort_Order" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <RadioButton x:Name="Random" Content="Random " FontSize="30" FontStyle="Italic"/>
+            <RadioButton x:Name="Ascending" Content="Ascending" FontSize="30" FontStyle="Italic"/>
+            <RadioButton x:Name="Descending" Content="Descending" FontSize="30" FontStyle="Italic"/>
+        </StackPanel>
+        <HyperlinkButton Content="Proceed" Click="HyperlinkButton_proceed" HorizontalAlignment="Center" Margin="0,720,0,0" VerticalAlignment="Top" FontSize="32" RenderTransformOrigin="0.42,0.53"/>
+    </Grid>
+</Page>

@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="App1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="12, 0, 12, 5">
+        <StackPanel x:Name="SortingOptions" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <RadioButton x:Name="InsertionSort" VerticalAlignment="Top" Content="Insertion Sort" FontSize="30" FontStyle="Italic"/>
+            <RadioButton x:Name="QuickSort" VerticalAlignment="Top" Content="Quick Sort" FontSize="30" FontStyle="Italic"/>
+            <RadioButton x:Name="MergeSort"  VerticalAlignment="Top" Content="Merge Sort" FontSize="30" FontStyle="Italic"/>
+            <RadioButton x:Name="SelectionSort" VerticalAlignment="Top" Content="Selection Sort" FontSize="30" FontStyle="Italic"/>
+            <RadioButton x:Name="ShellSort" VerticalAlignment="Top" Content=" Shell Sort" FontSize="30" FontStyle="Italic"/>
+        </StackPanel>
+        <TextBlock x:Name="Prompt" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Select Sorting Algorithm of Choice" FontSize="44" Margin="0,108,0,0" FontStyle="Italic"/>
+        <HyperlinkButton Click="HyperlinkButton_Sort" Content=" Sort" HorizontalAlignment="Center" Margin="0,734,0,0" VerticalAlignment="Top" Height="90" Width="147" RenderTransformOrigin="0.49,-0.067"/>
+    </Grid>
+</Page>

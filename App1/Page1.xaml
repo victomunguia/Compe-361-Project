@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="App1.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock x:Name="TypePrompt" Text="What array type would you like to use?" FontSize="44" VerticalAlignment="Top" HorizontalAlignment="Center" 
+                  FontStyle="Italic" RenderTransformOrigin="0.51,0.443" Margin="0,212,0,0" />
+        <StackPanel x:Name="ArrayTypeOption" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <RadioButton x:Name="IntOption" Content="Integer" FontSize="30" FontStyle="Italic" IsChecked="True" />
+            <RadioButton x:Name="DoubleOption" Content="Double" FontSize="30" FontStyle="Italic" IsChecked="False"/>
+        </StackPanel>
+        <Button x:Name="Nextpage" Content="Next" HorizontalAlignment="Center" Margin="0,699,0,0" VerticalAlignment="Top" Height="87" Width="269" FontSize="20"/>
+    </Grid>
+</Page>
