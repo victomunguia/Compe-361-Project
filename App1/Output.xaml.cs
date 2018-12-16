@@ -39,8 +39,17 @@ namespace App1
                 outputToBlock(passedVar3.intArray);
             else if (((bool)passedVar3.Random) && ((bool)passedVar3.chooseFloat))
                 outputToBlock(passedVar3.floatArray);
-           // else if(((bool)passedVar3.ShellSort)) && ((bool)passedVar3.chooseInt))
-      
+           else if(((bool)passedVar3.ShellSort) && ((bool)passedVar3.chooseInt)&& ((bool)passedVar3.Asceding))
+            {
+                passedVar3.Shell_Sort_int();
+                outputToBlock(passedVar3.intArray);
+            }
+            else if(((bool)passedVar3.SelectionSort)&& ((bool)passedVar3.chooseInt)&&((bool)passedVar3.Asceding))
+            {
+                passedVar3.Selection_Sort_int();
+                outputToBlock(passedVar3.intArray);
+            }
+         
         }
         private void outputToBlock(int []data)
         {

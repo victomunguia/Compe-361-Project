@@ -48,9 +48,9 @@ namespace App1
             
         }
         //Shell Sort
-         void Shell_Sort(int[] userArray)
+         public void Shell_Sort_int()
         {
-            int arrSize = userArray.Length;
+            int arrSize = this.intArray.Length;
             int gap = arrSize / 2;
             int temp;
             int i;
@@ -61,37 +61,63 @@ namespace App1
                 for (i = 0; i + gap < arrSize; i++)
                 {
                     j = i + gap;
-                    temp = userArray[j];
+                    temp = this.intArray[j];
 
-                    while (j - gap >= 0 && temp < userArray[j - gap])
+                    while (j - gap >= 0 && temp < this.intArray[j - gap])
                     {
-                        userArray[j] = userArray[j - gap];
+                        this.intArray[j] = this.intArray[j - gap];
                         j = j - gap;
                     }
-                    userArray[j] = temp;
+                    this.intArray[j] = temp;
                 }
                 gap = gap / 2;
                
             }
         }
+        public void Shell_Sort_float()
+        {
+            int arrSize = this.floatArray.Length;
+            int gap = arrSize / 2;
+            double temp;
+            int i;
+            int j;
+
+            while (gap > 0)
+            {
+                for (i = 0; i + gap < arrSize; i++)
+                {
+                    j = i + gap;
+                    temp = this.floatArray[j];
+
+                    while (j - gap >= 0 && temp < this.floatArray[j - gap])
+                    {
+                        this.intArray[j] = this.intArray[j - gap];
+                        j = j - gap;
+                    }
+                    this.floatArray[j] = temp;
+                }
+                gap = gap / 2;
+
+            }
+        }
         //Selection Sort (Kind of like Bubble sort)
-        private void Selection_Sort(int[] userArray)
+        public void Selection_Sort_int()
         {
             int i;
             int smallIndex;
             int arrIndex;
-            for (i = 0; i < userArray.Length - 1; i++)
+            for (i = 0; i < this.intArray.Length; i++)
             {
                 smallIndex = i;
-                for (arrIndex = i + 1; arrIndex < userArray.Length-1; arrIndex++)
+                for (arrIndex = i + 1; arrIndex < this.intArray.Length; arrIndex++)
                 {
-                    if (userArray[arrIndex] < userArray[smallIndex])
+                    if (this.intArray[arrIndex] < this.intArray[smallIndex])
                         smallIndex = arrIndex;
                 }
                 //Swap
-                int temp = userArray[i];
-                userArray[i] = userArray[smallIndex];
-                userArray[smallIndex] = temp;
+                int temp = this.intArray[i];
+                this.intArray[i] = this.intArray[smallIndex];
+                this.intArray[smallIndex] = temp;
             }
         }
         //Insertion sort
@@ -100,18 +126,18 @@ namespace App1
          * -Simple implementation but less efficient then that of 
          *  the more advance sorting i.e. merge sort
          */
-        private void Insertion_Sort(int[] userArray)
+        public void Insertion_Sort_int()
         {
             int i, j;
-            for (i = 1; i <= userArray.Length-1; i++)
+            for (i = 1; i < this.intArray.Length; i++)
             {
                 j = i;
-                while ((j > 0) && (userArray[i] < userArray[j - 1]))
+                while ((j > 0) && (this.intArray[i] < this.intArray[j - 1]))
                 {
-                    userArray[j] = userArray[j - 1];
+                    this.intArray[j] = this.intArray[j - 1];
                     --j;
                 }
-                userArray[j] = userArray[i];
+                this.intArray[j] = this.intArray[i];
             }
         }
 
