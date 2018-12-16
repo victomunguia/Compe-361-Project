@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="App1.Output"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBox x:Name="output" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" Height="705" Margin="790,135,87,0" RequestedTheme="Light"/>
+        <TextBlock x:Name="message" VerticalAlignment="Top" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Text="Press the button below output array sorting line by line" Margin="117,239,0,0" FontSize="35" FontStyle="Italic" Height="171" Width="558"/>
+        <Button x:Name="step" HorizontalAlignment="Left" Content="Next Step" FontSize="12" Margin="257,740,0,0" VerticalAlignment="Top" Height="100" Width="259" Click="outputClick"/>
+    </Grid>
+</Page>

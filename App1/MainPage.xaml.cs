@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Windows.UI.Popups;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace App1
@@ -22,9 +22,12 @@ namespace App1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        MyArray var = new MyArray();
         public MainPage()
         {
             this.InitializeComponent();
+           
+           
         }
 
         private void InsertionSort_ActualThemeChanged(FrameworkElement sender, object args)
@@ -32,9 +35,44 @@ namespace App1
 
         }
         private void HyperlinkButton_Sort(object sender, RoutedEventArgs e)
-
         {
-            this.Frame.Navigate(typeof(Page1));
+            try
+            {
+                if ((bool)QuickSort.IsChecked)
+                {
+                    var.Quicksort = true;
+                    this.Frame.Navigate(typeof(Page1), var);
+                }
+                else if ((bool)MergeSort.IsChecked)
+                {
+                    var.MergeSort = true;
+                    this.Frame.Navigate(typeof(Page1), var);
+                }
+                else if ((bool)SelectionSort.IsChecked)
+                {
+                    var.SelectionSort = true;
+                    this.Frame.Navigate(typeof(Page1), var);
+                }
+                else if ((bool)InsertionSort.IsChecked)
+                {
+                    var.InsertionSort = true;
+                    this.Frame.Navigate(typeof(Page1), var);
+                }
+                else if ((bool)ShellSort.IsChecked)
+                {
+                    var.ShellSort = true;
+                    this.Frame.Navigate(typeof(Page1), var);
+                }
+                else
+                {
+                    throw new InvalidOperationException("Select a sorting option before proceeding");
+                }
+            }
+            catch (InvalidOperationException ioEx)
+            {
+                MessageDialog msg = new MessageDialog(ioEx.Message, "error");
+                msg.ShowAsync();
+            }
         }
     }
 }

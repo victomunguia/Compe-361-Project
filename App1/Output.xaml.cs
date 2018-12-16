@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using App1;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace App1
@@ -20,16 +20,23 @@ namespace App1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BlankPage2 : Page
+    public sealed partial class Output : Page
     {
-        public BlankPage2()
+        public Output()
         {
             this.InitializeComponent();
+   
         }
-
-        private void HyperlinkButton_proceed(object sender, RoutedEventArgs e)
+        private void outputClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Output));
+            MyArray arr=new MyArray();
+            for(int index=0; index<20; index++)
+            {
+                int x = arr.intArray[index];
+                output.Text += x.ToString() + ' ';
+            }
+            output.Text += '\n';
+      
         }
     }
 }

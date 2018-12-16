@@ -17,6 +17,7 @@
             <RadioButton x:Name="ShellSort" VerticalAlignment="Top" Content=" Shell Sort" FontSize="30" FontStyle="Italic"/>
         </StackPanel>
         <TextBlock x:Name="Prompt" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Select Sorting Algorithm of Choice" FontSize="44" Margin="0,108,0,0" FontStyle="Italic"/>
-        <HyperlinkButton Click="HyperlinkButton_Sort" Content=" Sort" HorizontalAlignment="Center" Margin="0,734,0,0" VerticalAlignment="Top" Height="90" Width="147" RenderTransformOrigin="0.49,-0.067"/>
+        <HyperlinkButton Click="HyperlinkButton_Sort" Content=" Sort" HorizontalAlignment="Center" Margin="0,734,0,0" VerticalAlignment="Top" Height="90" Width="147" RenderTransformOrigin="0.49,-0.067" FontSize="35"/>
+
     </Grid>
 </Page>
