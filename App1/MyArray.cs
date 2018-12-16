@@ -25,7 +25,7 @@ namespace App1
         public bool chooseInt = false;
 
         const int size = 20;
-        double[] floatArray = new double[size];
+        public double[] floatArray = new double[size];
         public int[] intArray = new int[size];
     
         Random rand = new Random(100);
@@ -33,22 +33,19 @@ namespace App1
         public MyArray()
         {
             populateArray();
-            //Selection_Sort(intArray);
-            Insertion_Sort(intArray);
+
 
         }
         private void populateArray()
         {
-            if(chooseFloat)
-            {
+        
                 for (int index=0; index<size; index++)
-                    floatArray[index] = rand.NextDouble();
-            }
-            else
-            {
+                    floatArray[index] = rand.NextDouble()*5;
+           
+           
                 for(int index=0; index<size; index++)
                     intArray[index] = rand.Next()%50;  
-            }
+            
         }
         //Shell Sort
          void Shell_Sort(int[] userArray)

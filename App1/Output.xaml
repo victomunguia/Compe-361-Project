@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBox x:Name="output" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="28" Height="705" Margin="790,135,87,0" RequestedTheme="Light"/>
+        <TextBox x:Name="output" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="705" Margin="790,135,87,0" RequestedTheme="Light"/>
         <TextBlock x:Name="message" VerticalAlignment="Top" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Text="Press the button below output array sorting line by line" Margin="117,239,0,0" FontSize="35" FontStyle="Italic" Height="171" Width="558"/>
         <Button x:Name="step" HorizontalAlignment="Left" Content="Next Step" FontSize="12" Margin="257,740,0,0" VerticalAlignment="Top" Height="100" Width="259" Click="outputClick"/>
     </Grid>

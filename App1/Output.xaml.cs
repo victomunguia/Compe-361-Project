@@ -35,13 +35,31 @@ namespace App1
         }
         private void outputClick(object sender, RoutedEventArgs e)
         {
-            for(int index=0; index<20; index++)
+            if (((bool)passedVar3.Random) && ((bool)passedVar3.chooseInt))
+                outputToBlock(passedVar3.intArray);
+            else if (((bool)passedVar3.Random) && ((bool)passedVar3.chooseFloat))
+                outputToBlock(passedVar3.floatArray);
+           // else if(((bool)passedVar3.ShellSort)) && ((bool)passedVar3.chooseInt))
+      
+        }
+        private void outputToBlock(int []data)
+        {
+            for (int index = 0; index < 20; index++)
             {
                 int x = passedVar3.intArray[index];
-                output.Text += x.ToString() + ' ';
+                output.Text += x.ToString() + ',';
             }
             output.Text += '\n';
-      
+        }
+        private void outputToBlock(double[] data)
+        {
+            for (int index = 0; index < 20; index++)
+            {
+                double x = data[index];
+                output.Text += x.ToString("0.00") +"  ,";
+             
+            }
+            output.Text += '\n';
         }
     }
 }
