@@ -22,17 +22,22 @@ namespace App1
     /// </summary>
     public sealed partial class Output : Page
     {
+        MyArray passedVar3;
         public Output()
         {
             this.InitializeComponent();
    
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            passedVar3 = e.Parameter as MyArray;
+        }
         private void outputClick(object sender, RoutedEventArgs e)
         {
-            MyArray arr=new MyArray();
             for(int index=0; index<20; index++)
             {
-                int x = arr.intArray[index];
+                int x = passedVar3.intArray[index];
                 output.Text += x.ToString() + ' ';
             }
             output.Text += '\n';

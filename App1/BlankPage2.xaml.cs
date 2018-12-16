@@ -22,14 +22,33 @@ namespace App1
     /// </summary>
     public sealed partial class BlankPage2 : Page
     {
+        MyArray passedVar2;
         public BlankPage2()
         {
             this.InitializeComponent();
         }
-
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            passedVar2 = e.Parameter as MyArray;
+        }
         private void HyperlinkButton_proceed(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Output));
+            if((bool)Ascending.IsChecked)
+            {
+                passedVar2.Asceding = true;
+                this.Frame.Navigate(typeof(Output), passedVar2);
+            }
+            else if((bool)Descending.IsChecked)
+            {
+                passedVar2.Descending = true;
+                this.Frame.Navigate(typeof(Output), passedVar2);
+            }
+            else
+            {
+                passedVar2.Random = true;
+                this.Frame.Navigate(typeof(Output), passedVar2);
+            }
         }
     }
 }

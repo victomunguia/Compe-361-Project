@@ -11,7 +11,7 @@
     <Grid>
         <TextBlock x:Name="SortOrder" VerticalAlignment="Top" HorizontalAlignment="Center" Text="Choose a desired sorting order" Margin="0,314,0,0" FontSize="35" FontStyle="Italic"/>
         <StackPanel x:Name="Sort_Order" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <RadioButton x:Name="Random" Content="Random " FontSize="30" FontStyle="Italic"/>
+            <RadioButton x:Name="Random" Content="Random " FontSize="30" FontStyle="Italic" IsChecked="True"/>
             <RadioButton x:Name="Ascending" Content="Ascending" FontSize="30" FontStyle="Italic"/>
             <RadioButton x:Name="Descending" Content="Descending" FontSize="30" FontStyle="Italic"/>
         </StackPanel>
