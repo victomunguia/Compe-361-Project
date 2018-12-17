@@ -26,7 +26,7 @@ namespace App1
         public bool chooseInt = false;
 
         const int size = 20;
-        public double[] floatArray = new double[size];
+        //public double[] floatArray = new double[size];
         public int[] intArray = new int[size];
     
         Random rand = new Random(100);
@@ -37,9 +37,10 @@ namespace App1
         }
         private void populateArray()
         {
-        
+            /*
                 for (int index=0; index<size; index++)
                     floatArray[index] = rand.NextDouble()*5;
+            */
            
            
                 for(int index=0; index<size; index++)
@@ -76,9 +77,9 @@ namespace App1
         }
         public void Shell_Sort_float()
         {
-            int arrSize = this.floatArray.Length;
+            int arrSize = this.intArray.Length;
             int gap = arrSize / 2;
-            double temp;
+            int temp;
             int i;
             int j;
 
@@ -87,14 +88,14 @@ namespace App1
                 for (i = 0; i + gap < arrSize; i++)
                 {
                     j = i + gap;
-                    temp = this.floatArray[j];
+                    temp = this.intArray[j];
 
-                    while (j - gap >= 0 && temp < this.floatArray[j - gap])
+                    while (j - gap >= 0 && temp < this.intArray[j - gap])
                     {
                         this.floatArray[j] = this.floatArray[j - gap];
                         j = j - gap;
                     }
-                    this.floatArray[j] = temp;
+                    this.intArray[j] = temp;
                 }
                 gap = gap / 2;
 
