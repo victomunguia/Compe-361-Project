@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using App1;
 
-namespace App1 
+namespace App1
 {
-    public class MyArray
+    class MyArray_Double
     {
         //Boolean variable that will be utilized for selecting proper 
         //algorithm when establishing outputs
@@ -25,35 +24,27 @@ namespace App1
         public bool chooseInt = false;
 
         const int size = 20;
-        //public double[] floatArray = new double[size];
-        public int[] intArray = new int[size];
-    
+        public double[] floatArray = new double[size];
+
         Random rand = new Random(100);
-        
-        public MyArray()
+
+        public MyArray_Double()
         {
             populateArray();
-
-
         }
         private void populateArray()
         {
-            /*
-                for (int index=0; index<size; index++)
-                    floatArray[index] = rand.NextDouble()*5;
-            */
-           
-           
-                for(int index=0; index<size; index++)
-                    intArray[index] = rand.Next()%50;  
-            
+
+            for (int index = 0; index < size; index++)
+                floatArray[index] = rand.NextDouble() * 5;
+
         }
         //Shell Sort
-         public void Shell_Sort_int()
+        public void Shell_Sort_int()
         {
-            int arrSize = this.intArray.Length;
+            int arrSize = this.floatArray.Length;
             int gap = arrSize / 2;
-            int temp;
+            double temp;
             int i;
             int j;
 
@@ -62,24 +53,24 @@ namespace App1
                 for (i = 0; i + gap < arrSize; i++)
                 {
                     j = i + gap;
-                    temp = this.intArray[j];
+                    temp = this.floatArray[j];
 
-                    while (j - gap >= 0 && temp < this.intArray[j - gap])
+                    while (j - gap >= 0 && temp < this.floatArray[j - gap])
                     {
-                        this.intArray[j] = this.intArray[j - gap];
+                        this.floatArray[j] = this.floatArray[j - gap];
                         j = j - gap;
                     }
-                    this.intArray[j] = temp;
+                    this.floatArray[j] = temp;
                 }
                 gap = gap / 2;
-               
+
             }
         }
         public void Shell_Sort_float()
         {
-            int arrSize = this.intArray.Length;
+            int arrSize = this.floatArray.Length;
             int gap = arrSize / 2;
-            int temp;
+            double temp;
             int i;
             int j;
 
@@ -88,14 +79,14 @@ namespace App1
                 for (i = 0; i + gap < arrSize; i++)
                 {
                     j = i + gap;
-                    temp = this.intArray[j];
+                    temp = this.floatArray[j];
 
-                    while (j - gap >= 0 && temp < this.intArray[j - gap])
+                    while (j - gap >= 0 && temp < this.floatArray[j - gap])
                     {
-                        this.intArray[j] = this.intArray[j - gap];
+                        this.floatArray[j] = this.floatArray[j - gap];
                         j = j - gap;
                     }
-                    this.intArray[j] = temp;
+                    this.floatArray[j] = temp;
                 }
                 gap = gap / 2;
 
@@ -107,18 +98,18 @@ namespace App1
             int i;
             int smallIndex;
             int arrIndex;
-            for (i = 0; i < this.intArray.Length; i++)
+            for (i = 0; i < this.floatArray.Length; i++)
             {
                 smallIndex = i;
-                for (arrIndex = i + 1; arrIndex < this.intArray.Length; arrIndex++)
+                for (arrIndex = i + 1; arrIndex < this.floatArray.Length; arrIndex++)
                 {
-                    if (this.intArray[arrIndex] < this.intArray[smallIndex])
+                    if (this.floatArray[arrIndex] < this.floatArray[smallIndex])
                         smallIndex = arrIndex;
                 }
                 //Swap
-                int temp = this.intArray[i];
-                this.intArray[i] = this.intArray[smallIndex];
-                this.intArray[smallIndex] = temp;
+                double temp = this.floatArray[i];
+                this.floatArray[i] = this.floatArray[smallIndex];
+                this.floatArray[smallIndex] = temp;
             }
         }
         //Insertion sort
@@ -129,33 +120,34 @@ namespace App1
          */
         public void Insertion_Sort_int()
         {
-            int length = this.intArray.Length;
+            int length = this.floatArray.Length;
             int i = 0;
             int j = 0;
-            for(i=1; i<length; ++i)
+            for (i = 1; i < length; ++i)
             {
-                int temp = this.intArray[i];
+                double temp = this.floatArray[i];
                 j = i - 1;
-                while(j>=0 && this.intArray[j]>temp)
+                while (j >= 0 && this.floatArray[j] > temp)
                 {
-                    this.intArray[j + 1] = this.intArray[j];
+                    this.floatArray[j + 1] = this.floatArray[j];
                     j = j - 1;
                 }
-                this.intArray[j + 1] = temp;
+                this.floatArray[j + 1] = temp;
             }
-            
+
         }
 
-        public void MainMerge_int(int[] numbers, int left, int mid, int right)
+        public void MainMerge_double(double[] numbers, int left, int mid, int right)
         {
-            int[] temp = new int[20];
-            int i, eol, num, pos;
+            double[] temp = new Double[20];
+            int i, pos;
+            double eol, num;
 
             eol = (mid - 1);
             pos = left;
             num = (right - left + 1);
 
-            while((left<=eol)&&(mid<=right))
+            while ((left <= eol) && (mid <= right))
             {
                 if (numbers[left] <= numbers[mid])
                     temp[pos++] = numbers[left++];
@@ -168,21 +160,21 @@ namespace App1
             while (mid <= right)
                 temp[pos++] = numbers[mid++];
 
-            for(i=0; i<num; i++)
+            for (i = 0; i < num; i++)
             {
                 numbers[right] = temp[right];
                 right--;
-            }          
+            }
         }
-        public void SortMerge_int(int[]numbers, int left, int right)
+        public void SortMerge_int(double[] numbers, int left, int right)
         {
             int mid;
-            if(right>left)
+            if (right > left)
             {
                 mid = (right + left) / 2;
                 SortMerge_int(numbers, left, mid);
                 SortMerge_int(numbers, (mid + 1), right);
-                MainMerge_int(numbers, left, mid + 1, right);
+                MainMerge_double(numbers, left, mid + 1, right);
             }
         }
 
