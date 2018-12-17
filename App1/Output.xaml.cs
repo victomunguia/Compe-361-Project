@@ -63,9 +63,10 @@ namespace App1
                 passedVar3.SortMerge_int(passedVar3.intArray,0, (passedVar3.intArray.Length-1));
                 outputToBlock(passedVar3.intArray);
             }
-            else if(((bool)passedVar3.Quicksort)&&((bool)passedVar3.chooseInt)&&((bool)passedVar3.Asceding)))
+            else if(((bool)passedVar3.Quicksort)&&((bool)passedVar3.chooseInt)&&((bool)passedVar3.chooseInt)&&((bool)passedVar3.Asceding))
             {
-
+                passedVar3.QuickSort_int(passedVar3.intArray, 0, (passedVar3.intArray.Length - 1));
+                outputToBlock(passedVar3.intArray);
             }
         }
         private void outputToBlock(int []data)
