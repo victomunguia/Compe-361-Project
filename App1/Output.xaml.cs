@@ -20,14 +20,15 @@ namespace App1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Output : Page
+    public partial class Output : Page
     {
         MyArray passedVar3;
         public Output()
         {
             this.InitializeComponent();
-   
+
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -43,35 +44,115 @@ namespace App1
             {
                 outputToBlock(passedVar3.floatArray);
             }
-            else if (((bool)passedVar3.ShellSort) && ((bool)passedVar3.chooseInt) && ((bool)passedVar3.Asceding))
+
+            else if ((bool)passedVar3.ShellSort)
             {
-                passedVar3.Shell_Sort_int();
-                outputToBlock(passedVar3.intArray);
+                if ((bool)passedVar3.chooseInt)
+                {
+                    passedVar3.Shell_Sort_int();
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.intArray);
+                    else
+                       outputToBlock_descend(passedVar3.intArray);
+                }
+                else
+                {
+                    passedVar3.Shell_Sort_float();
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.floatArray);
+                    else
+                        outputToBlock_descend(passedVar3.floatArray);
+                }
             }
-            else if (((bool)passedVar3.SelectionSort) && ((bool)passedVar3.chooseInt) && ((bool)passedVar3.Asceding))
+            else if ((bool)passedVar3.SelectionSort)
             {
-                passedVar3.Selection_Sort_int();
-                outputToBlock(passedVar3.intArray);
+                if ((bool)passedVar3.chooseInt)
+                {
+                    passedVar3.Selection_Sort_int();
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.intArray);
+                    else
+                        outputToBlock_descend(passedVar3.intArray);
+                }
+                else
+                {
+                    passedVar3.Selection_Sort_float();
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.floatArray);
+                    else
+                        outputToBlock_descend(passedVar3.floatArray);
+                }
             }
-            else if (((bool)passedVar3.InsertionSort) && ((bool)passedVar3.chooseInt) && ((bool)passedVar3.Asceding))
+            else if ((bool)passedVar3.InsertionSort)
             {
-                passedVar3.Insertion_Sort_int();
-                outputToBlock(passedVar3.intArray);
+                if ((bool)passedVar3.chooseInt)
+                {
+                    passedVar3.Insertion_Sort_int();
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.intArray);
+                    else
+                        outputToBlock_descend(passedVar3.intArray);
+                }
+                else
+                {
+                    passedVar3.Insertion_Sort_float();
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.floatArray);
+                    else
+                        outputToBlock_descend(passedVar3.floatArray);
+                }
             }
-            else if (((bool)passedVar3.MergeSort) && (((bool)passedVar3.chooseInt) && ((bool)passedVar3.Asceding)))
+            else if ((bool)passedVar3.MergeSort)
             {
-                passedVar3.SortMerge_int(passedVar3.intArray,0, (passedVar3.intArray.Length-1));
-                outputToBlock(passedVar3.intArray);
+                if ((bool)passedVar3.chooseInt)
+                {
+                    passedVar3.SortMerge_int(passedVar3.intArray, 0, (passedVar3.intArray.Length - 1));
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.intArray);
+                    else
+                        outputToBlock_descend(passedVar3.intArray);
+                }
+                else
+                {
+                    passedVar3.SortMerge_double(passedVar3.floatArray, 0, (passedVar3.floatArray.Length - 1));
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.floatArray);
+                    else
+                        outputToBlock_descend(passedVar3.floatArray);
+                }
             }
-            else if(((bool)passedVar3.Quicksort)&&((bool)passedVar3.chooseInt)&&((bool)passedVar3.chooseInt)&&((bool)passedVar3.Asceding))
+            else if((bool)passedVar3.Quicksort)
             {
-                passedVar3.QuickSort_int(passedVar3.intArray, 0, (passedVar3.intArray.Length - 1));
-                outputToBlock(passedVar3.intArray);
+                if ((bool)passedVar3.chooseInt)
+                {
+                    passedVar3.QuickSort_int(passedVar3.intArray, 0, (passedVar3.intArray.Length - 1));
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.intArray);
+                    else
+                        outputToBlock_descend(passedVar3.intArray);
+                }
+                else
+                {
+                    passedVar3.QuickSort_double(passedVar3.floatArray, 0, (passedVar3.floatArray.Length - 1));//function for double Quicksort_double
+                    if ((bool)passedVar3.Asceding)
+                        outputToBlock(passedVar3.floatArray);
+                    else
+                        outputToBlock_descend(passedVar3.floatArray);
+                }
             }
         }
         private void outputToBlock(int []data)
         {
             for (int index = 0; index < 20; index++)
+            {
+                int x = passedVar3.intArray[index];
+                output.Text += x.ToString() + ',';
+            }
+            output.Text += '\n';
+        }
+        private void outputToBlock_descend(int[] data)
+        {
+            for (int index = 19; index >= 0; index--)
             {
                 int x = passedVar3.intArray[index];
                 output.Text += x.ToString() + ',';
@@ -85,6 +166,16 @@ namespace App1
                 double x = data[index];
                 output.Text += x.ToString("0.00") +"  ,";
              
+            }
+            output.Text += '\n';
+        }
+        private void outputToBlock_descend(double[] data)
+        {
+            for (int index = 19; index >= 0; index--)
+            {
+                double x = data[index];
+                output.Text += x.ToString("0.00") + "  ,";
+
             }
             output.Text += '\n';
         }

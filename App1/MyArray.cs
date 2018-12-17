@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using App1;
-
 namespace App1 
 {
+ 
     public class MyArray
     {
+
         //Boolean variable that will be utilized for selecting proper 
         //algorithm when establishing outputs
         public bool Quicksort = false;
@@ -29,12 +30,10 @@ namespace App1
         public int[] intArray = new int[size];
     
         Random rand = new Random(100);
-        
+       
         public MyArray()
         {
             populateArray();
-
-
         }
         private void populateArray()
         {
@@ -45,7 +44,8 @@ namespace App1
            
                 for(int index=0; index<size; index++)
                     intArray[index] = rand.Next()%50;  
-            
+               
+         
         }
         //Shell Sort
          public void Shell_Sort_int()
@@ -69,9 +69,9 @@ namespace App1
                         j = j - gap;
                     }
                     this.intArray[j] = temp;
+                
                 }
-                gap = gap / 2;
-               
+                gap = gap / 2; 
             }
         }
         public void Shell_Sort_float()
@@ -91,7 +91,7 @@ namespace App1
 
                     while (j - gap >= 0 && temp < this.floatArray[j - gap])
                     {
-                        this.intArray[j] = this.intArray[j - gap];
+                        this.floatArray[j] = this.floatArray[j - gap];
                         j = j - gap;
                     }
                     this.floatArray[j] = temp;
@@ -120,6 +120,25 @@ namespace App1
                 this.intArray[smallIndex] = temp;
             }
         }
+        public void Selection_Sort_float()
+        {
+            int i;
+            int smallIndex;
+            int arrIndex;
+            for (i = 0; i < this.floatArray.Length; i++)
+            {
+                smallIndex = i;
+                for (arrIndex = i + 1; arrIndex < this.floatArray.Length; arrIndex++)
+                {
+                    if (this.floatArray[arrIndex] < this.floatArray[smallIndex])
+                        smallIndex = arrIndex;
+                }
+                //Swap
+                double temp = this.floatArray[i];
+                this.floatArray[i] = this.floatArray[smallIndex];
+                this.floatArray[smallIndex] = temp;
+            }
+        }
         //Insertion sort
         /*
          * -In-place
@@ -143,6 +162,23 @@ namespace App1
                 this.intArray[j + 1] = temp;
             }
             
+        }
+        public void Insertion_Sort_float()
+        {
+            int length = this.floatArray.Length;
+            int i = 0;
+            int j = 0;
+            for (i = 1; i < length; ++i)
+            {
+                double temp = this.floatArray[i];
+                j = i - 1;
+                while (j >= 0 && this.floatArray[j] > temp)
+                {
+                    this.floatArray[j + 1] = this.floatArray[j];
+                    j = j - 1;
+                }
+                this.floatArray[j + 1] = temp;
+            }
         }
 
         public void MainMerge_int(int[] numbers, int left, int mid, int right)
@@ -173,6 +209,35 @@ namespace App1
                 right--;
             }          
         }
+        public void MainMerge_double(double[] numbers, int left, int mid, int right)
+        {
+            double[] temp = new Double[20];
+            int i, pos;
+            double eol, num;
+
+            eol = (mid - 1);
+            pos = left;
+            num = (right - left + 1);
+
+            while ((left <= eol) && (mid <= right))
+            {
+                if (numbers[left] <= numbers[mid])
+                    temp[pos++] = numbers[left++];
+                else
+                    temp[pos++] = numbers[mid++];
+            }
+            while (left <= eol)
+                temp[pos++] = numbers[left++];
+
+            while (mid <= right)
+                temp[pos++] = numbers[mid++];
+
+            for (i = 0; i < num; i++)
+            {
+                numbers[right] = temp[right];
+                right--;
+            }
+        }
         public void SortMerge_int(int[]numbers, int left, int right)
         {
             int mid;
@@ -182,6 +247,17 @@ namespace App1
                 SortMerge_int(numbers, left, mid);
                 SortMerge_int(numbers, (mid + 1), right);
                 MainMerge_int(numbers, left, mid + 1, right);
+            }
+        }
+        public void SortMerge_double(double[] numbers, int left, int right)
+        {
+            int mid;
+            if (right > left)
+            {
+                mid = (right + left) / 2;
+                SortMerge_double(numbers, left, mid);
+                SortMerge_double(numbers, (mid + 1), right);
+                MainMerge_double(numbers, left, mid + 1, right);
             }
         }
         public void QuickSort_int(int[]arr, int start, int end)
@@ -202,6 +278,36 @@ namespace App1
             for (int j=start; j<=end-1; j++)
             {
                 if(arr[j]<=p)
+                {
+                    i++;
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+            temp = arr[i + 1];
+            arr[i + 1] = arr[end];
+            arr[end] = temp;
+            return (i + 1);
+        }
+        public void QuickSort_double(double[] arr, int start, int end)
+        {
+            int i;
+            if (start < end)
+            {
+                i = Partition_double(arr, start, end);
+                QuickSort_double(arr, start, i - 1);
+                QuickSort_double(arr, i + 1, end);
+            }
+        }
+        public int Partition_double(double[] arr, int start, int end)
+        {
+            double temp;
+            double p = arr[end];
+            int i = start - 1;
+            for (int j = start; j <= end - 1; j++)
+            {
+                if (arr[j] <= p)
                 {
                     i++;
                     temp = arr[i];
