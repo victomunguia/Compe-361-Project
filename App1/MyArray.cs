@@ -145,5 +145,45 @@ namespace App1
             
         }
 
+        public void MainMerge_int(int[] numbers, int left, int mid, int right)
+        {
+            int[] temp = new int[20];
+            int i, eol, num, pos;
+
+            eol = (mid - 1);
+            pos = left;
+            num = (right - left + 1);
+
+            while((left<=eol)&&(mid<=right))
+            {
+                if (numbers[left] <= numbers[mid])
+                    temp[pos++] = numbers[left++];
+                else
+                    temp[pos++] = numbers[mid++];
+            }
+            while (left <= eol)
+                temp[pos++] = numbers[left++];
+
+            while (mid <= right)
+                temp[pos++] = numbers[mid++];
+
+            for(i=0; i<num; i++)
+            {
+                numbers[right] = temp[right];
+                right--;
+            }          
+        }
+        public void SortMerge_int(int[]numbers, int left, int right)
+        {
+            int mid;
+            if(right>left)
+            {
+                mid = (right + left) / 2;
+                SortMerge_int(numbers, left, mid);
+                SortMerge_int(numbers, (mid + 1), right);
+                MainMerge_int(numbers, left, mid + 1, right);
+            }
+        }
+
     }
 }

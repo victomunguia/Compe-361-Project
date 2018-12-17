@@ -58,6 +58,15 @@ namespace App1
                 passedVar3.Insertion_Sort_int();
                 outputToBlock(passedVar3.intArray);
             }
+            else if (((bool)passedVar3.MergeSort) && (((bool)passedVar3.chooseInt) && ((bool)passedVar3.Asceding)))
+            {
+                passedVar3.SortMerge_int(passedVar3.intArray,0, (passedVar3.intArray.Length-1));
+                outputToBlock(passedVar3.intArray);
+            }
+            else if(((bool)passedVar3.Quicksort)&&((bool)passedVar3.chooseInt)&&((bool)passedVar3.Asceding)))
+            {
+
+            }
         }
         private void outputToBlock(int []data)
         {
