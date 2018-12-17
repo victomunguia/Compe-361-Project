@@ -128,17 +128,21 @@ namespace App1
          */
         public void Insertion_Sort_int()
         {
-            int i, j;
-            for (i = 1; i < this.intArray.Length; i++)
+            int length = this.intArray.Length;
+            int i = 0;
+            int j = 0;
+            for(i=1; i<length; ++i)
             {
-                j = i;
-                while ((j > 0) && (this.intArray[i] < this.intArray[j - 1]))
+                int temp = this.intArray[i];
+                j = i - 1;
+                while(j>=0 && this.intArray[j]>temp)
                 {
-                    this.intArray[j] = this.intArray[j - 1];
-                    --j;
+                    this.intArray[j + 1] = this.intArray[j];
+                    j = j - 1;
                 }
-                this.intArray[j] = this.intArray[i];
+                this.intArray[j + 1] = temp;
             }
+            
         }
 
     }
